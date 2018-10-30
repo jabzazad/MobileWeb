@@ -1,0 +1,56 @@
+[debug] [2018-10-29T12:53:45.981Z] ----------------------------------------------------------------------
+[debug] [2018-10-29T12:53:45.984Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Padchara\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2018-10-29T12:53:45.984Z] CLI Version:   4.2.1
+[debug] [2018-10-29T12:53:45.984Z] Platform:      win32
+[debug] [2018-10-29T12:53:45.984Z] Node Version:  v10.9.0
+[debug] [2018-10-29T12:53:45.985Z] Time:          Mon Oct 29 2018 19:53:45 GMT+0700 (GMT+07:00)
+[debug] [2018-10-29T12:53:45.985Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-10-29T12:53:45.998Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-10-29T12:53:45.998Z] > authorizing via signed-in user
+[debug] [2018-10-29T12:53:46.000Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-10-29T12:53:46.000Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+
+[debug] [2018-10-29T12:53:46.295Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-29T12:53:46.325Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/shopy-bb1b2  
+ 
+[debug] [2018-10-29T12:53:47.423Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-29T12:53:47.424Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/shopy-bb1b2  
+ 
+[debug] [2018-10-29T12:53:48.922Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\Padchara\Desktop\vs\mobilequiz1'...
+[info] 
+[debug] [2018-10-29T12:53:48.924Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/477326628984/clients/_:getWebAppConfig  
+ 
+[debug] [2018-10-29T12:53:49.567Z] <<< HTTP RESPONSE 200
+[info] i  hosting[shopy-bb1b2]: Serving hosting files from: public
+[info] +  hosting[shopy-bb1b2]: Local server: http://localhost:5000
+[debug] [2018-10-30T17:12:27.123Z] ----------------------------------------------------------------------
+[debug] [2018-10-30T17:12:27.127Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Padchara\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2018-10-30T17:12:27.127Z] CLI Version:   4.2.1
+[debug] [2018-10-30T17:12:27.127Z] Platform:      win32
+[debug] [2018-10-30T17:12:27.127Z] Node Version:  v10.9.0
+[debug] [2018-10-30T17:12:27.196Z] Time:          Wed Oct 31 2018 00:12:27 GMT+0700 (GMT+07:00)
+[debug] [2018-10-30T17:12:27.196Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-10-30T17:12:27.255Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-10-30T17:12:27.255Z] > authorizing via signed-in user
+[debug] [2018-10-30T17:12:27.258Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-10-30T17:12:27.259Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+
+[debug] [2018-10-30T17:12:27.581Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-30T17:12:27.603Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/shopy-bb1b2  
+ 
+[debug] [2018-10-30T17:12:28.718Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-30T17:12:28.719Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/shopy-bb1b2  
+ 
+[debug] [2018-10-30T17:12:30.127Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\Padchara\Desktop\vs\mobilequiz1'...
+[info] 
+[debug] [2018-10-30T17:12:30.140Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/477326628984/clients/_:getWebAppConfig  
+ 
+[debug] [2018-10-30T17:12:30.824Z] <<< HTTP RESPONSE 200
+[info] i  hosting[shopy-bb1b2]: Serving hosting files from: public
+[info] +  hosting[shopy-bb1b2]: Local server: http://localhost:5000

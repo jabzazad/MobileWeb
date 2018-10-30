@@ -62,88 +62,99 @@ db.settings({
     </ons-toolbar>
 
     <ons-tabbar swipeable position="auto" id="tabbar">
-      <ons-tab page="tab1.html" label="Home" icon="ion-home, material:md-home" active>
+      <ons-tab page="tab1.html" onclick="getHomeData();" label="Home" icon="ion-home, material:md-home" active>
       </ons-tab>
-      <ons-tab page="search.html" onclick=" getSearch();">
-        </ons-tab>
-      <ons-tab page="tab2.html" label="Cart" icon="fa-shopping-cart" active-icon="fa-shopping-cart">
+      <ons-tab page="tab2.html" onclick="getCartData();" label="Cart" icon="fa-shopping-cart" active-icon="fa-shopping-cart">
       </ons-tab>
     </ons-tabbar>
   </ons-page>
 
-  
-  <template id="search.html">
-<ons-page id="search">
-    &nbsp;
-    <div id="searchs"></div>
-    <div class="container">
-        <div class="row">
-    <script id="search_template" type="text/template">
-        <div class="container">
-            <div class="row">
-            
-                <% search.forEach(function(i){var item=i.data();%>  
-                <div class="col-sm-6 col-md-4 col-lg-3" style="margin-left:10">
-                  <div >
-                      <img style="height:200px;width:100%;" class="" src="<%=item.Photo1%>">
-                  </div>
-                  <div>
-                    <font color="orange">฿
-                      <%=item.Price%>
-                    </font>
-                  </div>
-                  <div>
-                      <%=item.Title%>
-                  </div>
-                </div>
-                <%});%>
-            </div>
-        </div>
-       
-    </script>
-
-    <script id="searchI_template" type="text/template">
-      <div class="container">
-          <div class="row">
-              <% search.forEach(function(searcha){%>  
-              <div  class="col-sm-6 col-md-4 col-lg-3" style="margin-left:10">
-                <div >
-                    <img style="height:200px;width:100%;" class="" src="<%=searcha.Photo1%>">
-                </div>
-                <div>
-                  <font color="orange">฿
-                    <%=searcha.Price%>
-                  </font>
-                </div>
-                <div>
-                    <%=searcha.Title%>
-                </div>
-              </div>
-              <%});%>
-          </div>
-      </div>
-     
-  </script>
-</ons-page>
-  </template>
+  <!-- ใช้templateเดิมเปลี่ยนแค่script -->
   
   <template id="tab1.html">
     <ons-page id="Tab1">
-      <p style="text-align: center; margin-top: 10px;">
-        <ons-search-input placeholder="Search" onchange="Getsearch(this.value)"></ons-search-input>
-      </p>
-      <ons-carousel swipeable auto-scroll overscrollable id="carousel" style="height: 300px;">
-        <ons-carousel-item id="carousel1" style="background: url('images/1.jpg') no-repeat center; background-size: contain;">
+  
+        <div id="icons"></div>
+<script id="detail_template" type="text/template">
+<div>
+    <ons-carousel swipeable auto-scroll overscrollable id="carousel" style="height: 300px;">
+        <ons-carousel-item id="carousel1" style='background: url(<%=detail.Photo1%>) no-repeat center; background-size: contain;'>
         </ons-carousel-item>
-        <ons-carousel-item id="carousel2" style="background: url('images/2.jpg') no-repeat center; background-size: contain;">
+        <ons-carousel-item id="carousel2" style="background: url(<%=detail.Photo2%>) no-repeat center; background-size: contain;">
         </ons-carousel-item>
-        <ons-carousel-item id="carousel3" style="background: url('images/3.jpg') no-repeat center; background-size: contain;">
+        <ons-carousel-item id="carousel3" style="background: url(<%=detail.Photo3%>) no-repeat center; background-size: contain;">
         </ons-carousel-item>
       </ons-carousel>
-      
-        <div id="icons"></div>
-
+     <div><h2>฿  <font color="orange"><%=detail.Price%></font></h2></div>
+<div>
+  <h1 class="text-center"><%=detail.Title%></h1>
+</div>
+     <!-- checkpoint -->
+</div>
+</script>
+        <script id="searchI_template" type="text/template">
+          <div class="container">
+              <div class="row">
+                  <ons-list-header><button onclick="getSearch()"class="btn btn-info">View all</button> 
+                    <button onclick="getSearch(null,1)"class="btn btn-info">High to Low</button>
+                    <button onclick="getSearch(null,0)"class="btn btn-info">Low to High</button>
+                  </ons-list-header>
+                  
+                  <% search.forEach(function(searcha){%>  
+                  <div  class="col-sm-6 col-md-4 col-lg-3" style="margin-left:10" onclick='Show(<%=searcha.Pid%>)'>
+                        <img style="height:40%;width:100%;" class="" src="<%=searcha.Photo1%>">
+                    <div>
+                      <font color="orange">฿
+                        <%=searcha.Price%>
+                      </font>
+                    </div>
+                    <div>
+                        <%=searcha.Title%>
+                    </div>
+                  </div>
+                  <%});%>
+              </div>
+          </div>
+         
+      </script>
+        <script id="search_template" type="text/template">
+          <div class="container">
+              <div class="row">
+                  <ons-list-header><button onclick="getSearch()"class="btn btn-info">View all</button></ons-list-header>
+                  <% search.forEach(function(i){var item=i.data();%>  
+                    &nbsp;
+                    
+                  <div class="col-sm-6 col-md-4 col-lg-3" style="margin-left:10"onclick='Show(<%=item.Pid%>)' >
+                    <div >
+                        <img style="height:200px;width:100%;" class="" src="<%=item.Photo1%>">
+                    </div>
+                    <div>
+                      <font color="orange">฿
+                        <%=item.Price%>
+                      </font>
+                    </div>
+                    <div>
+                        <%=item.Title%>
+                    </div>
+                  </div>
+                  <%});%>
+              </div>
+          </div>
+         
+      </script>
         <script id="icon_template" type="text/template">
+          <p style="text-align: center; margin-top: 10px;">
+              <ons-search-input placeholder="Search" onchange="Getsearch(this.value)"></ons-search-input>
+            </p>
+            <ons-carousel swipeable auto-scroll overscrollable id="carousel" style="height: 300px;">
+              <ons-carousel-item id="carousel1" style="background: url('images/1.jpg') no-repeat center; background-size: contain;">
+              </ons-carousel-item>
+              <ons-carousel-item id="carousel2" style="background: url('images/2.jpg') no-repeat center; background-size: contain;">
+              </ons-carousel-item>
+              <ons-carousel-item id="carousel3" style="background: url('images/3.jpg') no-repeat center; background-size: contain;">
+              </ons-carousel-item>
+            </ons-carousel>
+            
         <ons-row style="height:120px" vertical-align="center">  
         <% categories.forEach(function(category){%>  
         <ons-col type="button" style="background:#66ff99;" width="33%" onclick='getSearch("<%= category.name %>")'>
@@ -163,6 +174,8 @@ db.settings({
     </ons-page>
   </template>
 
+
+  
   <template id="tab2.html">
     <ons-page id="Tab2">
   
@@ -199,31 +212,27 @@ db.settings({
 <script>
   
  getHomeData();
-//  Getsearch()
-  document.addEventListener('prechange', function (event) {
-    
-    if (event.index == 0) {
-      console.log('Home clicked');
-      // get data for home screen  
-      getHomeData();
-    }else if(event.index ==1){
-
-    }else if (event.index == 2) {
-      console.log('Cart clicked');
-      // get data for cart screen  
-      getCartData();
-    }
-  });
+ 
+  function Show(data){
+    var DB=db.collection("Product").where("Pid","==",data);
+    DB.get().then(function(doc){
+      var data=doc.docs[0].data();
+      var detail_template = $('#detail_template').html();
+        var html = ejs.render(detail_template, {detail : data});
+      $('#icons').html(html);  
+  }).catch(function(error) {
+    console.log("Error getting document:", error);
+});
+  }
+  
   function getHomeData() {
     $('#Dnavbar').html(`<ons-icon class="toolbaricon" size="30px" icon="fa-shopping-bag">`);
     var docRef = db.collection("/UI").doc("UI");
     docRef.get().then(function(doc) {
     if (doc.exists) {
-        console.log("Document data:", doc.data());
         var data=doc.data();
           $('#appname').html(data.appname);
-      var style = "background: url('images/" + data.slides[0] + "') no-repeat center; background-size: contain;'";
-      $('#carousel1').attr('style', style)
+
       var icon_template = $('#icon_template').html();
       var html = ejs.render(icon_template, {categories : data.categories});
       $('#icons').html(html);
@@ -239,8 +248,6 @@ db.settings({
     var docRef = db.collection("/UI").doc("cart");
     docRef.get().then(function(doc) {
     if (doc.exists) {
-     
-        console.log("Document data:", doc.data());
         var data=doc.data();
         var cart_template = $('#cart_template').html();
       var html = ejs.render(cart_template, {cart : data.cart});
@@ -254,7 +261,23 @@ db.settings({
 });
 
   }
+  function Work(data){
+    var PID=[];
+  $('#Dnavbar').html("<ons-back-button onclick="+"getHomeData()"+">Back</ons-back-button>");
+          for(var i=0;i<data.length;i++){
+            PID.push(data[i].Pid);
+          }
+  var DB=db.collection("Product").where("Pid","==",PID);
 
+          DB.get().then(function(doc) {
+        var searchI_template = $('#searchI_template').html();
+        var html = ejs.render(searchI_template, {search : data});
+      $('#icons').html(html);    
+  }).catch(function(error) {
+    console.log("Error getting document:", error);
+});
+  }
+  
 //checkpointGet
 function Getsearch(Getdata){
   var arr=[];
@@ -267,28 +290,32 @@ function Getsearch(Getdata){
         arr.push(data);
         }
         if(i+1==doc.docs.length){
+      
           Work(arr);
         }
  }
   });
 }
 
- function getSearch(Getdata){
-  document.getElementById("tabbar").setActiveTab(1);
-    console.log("action");
-    
-    $('#Dnavbar').html("<ons-back-button onclick="+"document.getElementById('tabbar').setActiveTab(0);"+">Back</ons-back-button>");
-    if(Getdata==null){
-var DB=db.collection("Product");
-    }else{
+ function getSearch(Getdata,status){
+    $('#Dnavbar').html("<ons-back-button onclick="+"getHomeData()"+">Back</ons-back-button>");
+    if(Getdata==null &&status==0){
+var DB=db.collection("Product").orderBy("Pid", "asc");
+    }else if(Getdata!=null&&status==null){
 var DB=db.collection("Product").where("Category","==",Getdata);
+    }else if(Getdata!=null&&status==1){
+      var DB=db.collection("Product").where("Category","==",Getdata).orderBy("Pid", "desc");
+    }else if(Getdata!=null&&status==0){
+      var DB=db.collection("Product").where("Category","==",Getdata).orderBy("Pid", "asc");
+    }else if(Getdata==null&&status==1){
+      var DB=db.collection("Product").orderBy("Pid", "desc");
+    }else{
+      var DB=db.collection("Product");
     }
     DB.get().then(function(doc) {
         var search_template = $('#search_template').html();
         var html = ejs.render(search_template, {search : doc.docs});
-      $('#searchs').html(html);
-      console.log("Doc data:", doc.docs);
-    
+      $('#icons').html(html);    
   }).catch(function(error) {
     console.log("Error getting document:", error);
 });
